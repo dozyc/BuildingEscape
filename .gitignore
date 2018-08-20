@@ -1,0 +1,13 @@
+# Unreal Generated Files
+Binaries
+Build
+DerivedDataCache
+Intermediate
+Saved
+
+# Unreal Starter Content
+Content/StarterContent
+
+# Visual Studio Generated Files
+*.VC.db
+*.VC.opendb
