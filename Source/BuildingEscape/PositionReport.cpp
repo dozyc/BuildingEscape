@@ -20,7 +20,11 @@ void UPositionReport::BeginPlay()
 {
 	Super::BeginPlay();
 	FString ActorName = GetOwner()->GetName();
-	UE_LOG(LogTemp, Warning, TEXT("Position report reporting for duty on %s"), *ActorName)
+	FString ActorLocation = GetOwner()->GetActorLocation().ToString();
+	UE_LOG(LogTemp, Warning, TEXT("Position report reporting for duty on %s at %s")
+		, *ActorName
+		, *ActorLocation
+	);
 
 }
 
