@@ -20,9 +20,15 @@ void UOpenDoor::BeginPlay()
 {
 	Super::BeginPlay();
 
+	//OpenDoor();
+	
+}
+
+void UOpenDoor::OpenDoor()
+{
 	// Find the owner
 	AActor *DoorOwner = GetOwner();
-	
+
 	// Print the rotation
 	//FString DoorRotation = DoorOwner->GetActorRotation().ToString();
 	//UE_LOG(LogTemp, Warning, TEXT("Rotation of Door Owner is %s")
@@ -34,7 +40,6 @@ void UOpenDoor::BeginPlay()
 
 	// Set the door rotation
 	DoorOwner->SetActorRotation(NewRotation);
-	
 }
 
 
@@ -43,6 +48,10 @@ void UOpenDoor::TickComponent( float DeltaTime, ELevelTick TickType, FActorCompo
 {
 	Super::TickComponent( DeltaTime, TickType, ThisTickFunction );
 
-	// ...
+	// Poll the Trigger Volume
+	// If the ActorThatOpens is in the volume, open the door
+	if (PressurePlate->IsOverlappingActor(ActorThatOpens)) {
+		OpenDoor();
+	}
 }
 
