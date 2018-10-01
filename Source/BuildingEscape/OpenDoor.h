@@ -30,7 +30,6 @@ private:
 	UPROPERTY(EditAnywhere)
 	ATriggerVolume* PressurePlate;
 	
-	UPROPERTY(EditAnywhere)
 	AActor* ActorThatOpens; // Could be the default pawn, which inherits from actor
 	
 };
