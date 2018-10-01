@@ -19,17 +19,24 @@ public:
 	virtual void BeginPlay() override;
 
 	void OpenDoor();
+
+	void CloseDoor();
 	
 	// Called every frame
 	virtual void TickComponent( float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction ) override;
 
 private:
-	UPROPERTY(VisibleAnywhere)
-	float openAngle = 90.0f;
+	UPROPERTY(EditAnywhere)
+	float openAngle = -30.0f;
 
 	UPROPERTY(EditAnywhere)
 	ATriggerVolume* PressurePlate;
+
+	UPROPERTY(EditAnywhere)
+	float DoorCloseDelay = 1.0f;
+
+	float overlapStart = 0.0f;
 	
-	AActor* ActorThatOpens; // Could be the default pawn, which inherits from actor
-	
+	AActor *DoorOwner;		// The door under control of this class
+	AActor* ActorThatOpens; // The pawn which will be able to trigger door open
 };
