@@ -20,7 +20,9 @@ void UGrabber::BeginPlay()
 {
 	Super::BeginPlay();
 
-	// ...
+	// Print for information
+	UE_LOG(LogTemp, Warning, TEXT("Grabber on BeginPlay!"));
+
 	
 }
 
